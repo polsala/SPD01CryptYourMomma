@@ -1,6 +1,6 @@
 import unittest
-from .context import algorithms
-from .context import alphabets
+from context import algorithms
+from context import alphabets
 
 
 class TestAlgorithms(unittest.TestCase):
@@ -84,3 +84,7 @@ class TestAlgorithms(unittest.TestCase):
     def test_rail_fence_decrypt(self):
         # self.assertEqual('', '')
         pass
+
+
+if __name__ == '__main__':
+    unittest.main()
