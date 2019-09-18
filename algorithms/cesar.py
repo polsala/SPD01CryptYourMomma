@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-from defs import alphabets
 
 
 class AveCesar(object):
-    def __init__(self, n):
+    def __init__(self, n, alphabet):
         self.secret_number = n
+        self.alphabet = alphabet
 
     def encrypt(self, phrase):
         pass
