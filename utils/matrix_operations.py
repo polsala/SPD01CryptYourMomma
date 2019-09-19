@@ -12,3 +12,7 @@ def create_matrix_from_iterable(n_rows, n_columns, iterable_l):
 
     # Todo Implement
     return [['A'*n_rows] * n_columns]
+
+
+def remove_duplicates_from_list(some_list: list or tuple):
+    return list(dict.fromkeys(some_list))
