@@ -10,8 +10,7 @@ def create_matrix_from_iterable(n_rows, n_columns, iterable_l):
     if n_rows * n_columns != len(iterable_l):
         raise Exception('That\s not possible ma friend %s X %s != %s' % (n_rows, n_columns, iterable_l))
 
-    # Todo Implement
-    return [['A'*n_rows] * n_columns]
+    return list(zip(*[iter(iterable_l)]*n_rows))
 
 
 def remove_duplicates_from_list(some_list: list or tuple):
