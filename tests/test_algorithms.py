@@ -3,7 +3,7 @@ import unittest
 from defs.alphabets import BRITISH_ALPHABET_LOWER
 from algorithms.cesar import AveCesar
 from algorithms.rail_fence import RailFence
-from algorithms.polybios import PolYBios
+from algorithms.polybius import PolYBius
 
 
 class TestAlgorithms(unittest.TestCase):
@@ -93,11 +93,11 @@ class TestAlgorithms(unittest.TestCase):
 
         self.assertEqual(res_encrypt_phrase, expected_encrypted_phrase)
 
-    def test_poly_bios_encrypt(self):
+    def test_polybius_encrypt(self):
         # self.assertEqual('', '')
         pass
 
-    def test_poly_bios_decrypt(self):
+    def test_polybius_decrypt(self):
         # self.assertEqual('', '')
         pass
 

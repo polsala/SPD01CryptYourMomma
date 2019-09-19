@@ -1,3 +1,3 @@
 from .cesar import AveCesar
-from .polybios import PolYBios
+from .polybius import PolYBius
 from .rail_fence import RailFence

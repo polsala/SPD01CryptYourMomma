@@ -2,7 +2,7 @@
 from utils.matrix_operations import create_matrix_from_iterable
 
 
-class PolYBios(object):
+class PolYBius(object):
     def __init__(self, rows, columns, alphabet):
         self.matrix_rows = rows
         self.matrix_columns = columns
