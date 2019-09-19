@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
+from utils.matrix_operations import remove_duplicates_from_list
 
 
 class AveCesar(object):
     def __init__(self, n: int, alphabet: list or tuple):
         self.secret_number = n
-        self.alphabet = alphabet
+        self.alphabet = remove_duplicates_from_list(alphabet)
         self.alpha_size = len(alphabet)
 
     def encrypt(self, phrase):

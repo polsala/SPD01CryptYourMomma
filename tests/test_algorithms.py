@@ -72,6 +72,27 @@ class TestAlgorithms(unittest.TestCase):
 
         self.assertEqual(res_decrypt_phrase, expected_decrypted_phrase)
 
+    def test_cesar_drop_duplicates_from_alphabet(self):
+        decrypted_phrase = (
+            'it\'s the honky tonk women that gimme, gimme, gimme the honky tonk blues '
+            '(honky tonk women, by the rolling stones)'
+        )
+
+        alphabet_with_duplicateds = list.copy(BRITISH_ALPHABET_LOWER)
+
+        alphabet_with_duplicateds.extend(['a', 'a', 'b', 'c', 't'])
+
+        cesar = AveCesar(5, BRITISH_ALPHABET_LOWER)
+
+        res_encrypt_phrase = cesar.encrypt(decrypted_phrase)
+
+        expected_encrypted_phrase = (
+            'ny\'x ymj mtspd ytsp btrjs ymfy lnrrj, lnrrj, lnrrj ymj mtspd ytsp gqzjx '
+            '(mtspd ytsp btrjs, gd ymj wtqqnsl xytsjx)'
+        )
+
+        self.assertEqual(res_encrypt_phrase, expected_encrypted_phrase)
+
     def test_poly_bios_encrypt(self):
         # self.assertEqual('', '')
         pass
