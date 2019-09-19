@@ -18,4 +18,11 @@ class AveCesar(object):
         )
 
     def decrypt(self, phrase):
-        pass
+        return ''.join(
+            [
+                self.alphabet[(self.alphabet.index(ch) - self.secret_number) % self.alpha_size]
+                if ch in self.alphabet
+                else ch
+                for ch in phrase
+            ]
+        )
