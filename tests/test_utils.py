@@ -29,6 +29,22 @@ class TestMatrixUtils(unittest.TestCase):
         ]
         self.assertEqual(result_matrix, expected_matrix)
 
+    def test_create_dict_mapping_from_iterable(self):
+        result_dict = create_dict_mapping_from_iterable(
+            5, ['A', 'B', 'C', 'D', 'E'],
+            5, ['A', 'B', 'C', 'D', 'E'],
+            BRITISH_ALPHABET_LOWER_POLYBIUS_5_X_5
+        )
+
+        expected_result = {
+            ('A', 'A'): 'a', ('A', 'B'): 'b', ('A', 'C'): 'c', ('A', 'D'): 'd', ('A', 'E'): 'e',
+            ('B', 'A'): 'f', ('B', 'B'): 'g', ('B', 'C'): 'h', ('B', 'D'): ['i', 'j'], ('B', 'E'): 'k',
+            ('C', 'A'): 'l', ('C', 'B'): 'm', ('C', 'C'): 'n', ('C', 'D'): 'o', ('C', 'E'): 'p',
+            ('D', 'A'): 'q', ('D', 'B'): 'r', ('D', 'C'): 's', ('D', 'D'): 't', ('D', 'E'): 'u',
+            ('E', 'A'): 'v', ('E', 'B'): 'w', ('E', 'C'): 'x', ('E', 'D'): 'y', ('E', 'E'): 'z'}
+
+        self.assertEqual(result_dict, expected_result)
+
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestMatrixUtils)
