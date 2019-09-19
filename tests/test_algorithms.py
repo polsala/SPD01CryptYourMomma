@@ -44,14 +44,14 @@ class TestAlgorithms(unittest.TestCase):
 
         encrypted_phrase = (
             'ny\'x ymj mtspd ytsp btrjs ymfy lnrrj, lnrrj, lnrrj ymj mtspd ytsp gqzjx '
-            '(mtspd ytsp btrjs, gd ymj wtqqnsl Xytsjx)'
+            '(mtspd ytsp btrjs, gd ymj wtqqnsl xytsjx)'
         )
 
         res_decrypt_phrase = cesar.decrypt(encrypted_phrase)
 
         expected_decrypted_phrase = (
             'it\'s the honky tonk women that gimme, gimme, gimme the honky tonk blues '
-            '(honky tonk women, by the rolling Stones)'
+            '(honky tonk women, by the rolling stones)'
         )
 
         self.assertEqual(res_decrypt_phrase, expected_decrypted_phrase)
