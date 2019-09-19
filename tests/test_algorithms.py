@@ -10,7 +10,7 @@ class TestAlgorithms(unittest.TestCase):
     def test_cesar_encrypt(self):
         decrypted_phrase = (
             'it\'s the honky tonk women that gimme, gimme, gimme the honky tonk blues '
-            '(honky tonk women, by the rolling Stones)'
+            '(honky tonk women, by the rolling stones)'
         )
         cesar = AveCesar(5, BRITISH_ALPHABET_LOWER)
 
@@ -18,7 +18,7 @@ class TestAlgorithms(unittest.TestCase):
 
         expected_encrypted_phrase = (
             'ny\'x ymj mtspd ytsp btrjs ymfy lnrrj, lnrrj, lnrrj ymj mtspd ytsp gqzjx '
-            '(mtspd ytsp btrjs, gd ymj wtqqnsl Xytsjx)'
+            '(mtspd ytsp btrjs, gd ymj wtqqnsl xytsjx)'
         )
 
         self.assertEqual(res_encrypt_phrase, expected_encrypted_phrase)
@@ -44,14 +44,14 @@ class TestAlgorithms(unittest.TestCase):
 
         encrypted_phrase = (
             'ny\'x ymj mtspd ytsp btrjs ymfy lnrrj, lnrrj, lnrrj ymj mtspd ytsp gqzjx '
-            '(mtspd ytsp btrjs, gd ymj wtqqnsl Xytsjx)'
+            '(mtspd ytsp btrjs, gd ymj wtqqnsl xytsjx)'
         )
 
         res_decrypt_phrase = cesar.decrypt(encrypted_phrase)
 
         expected_decrypted_phrase = (
             'it\'s the honky tonk women that gimme, gimme, gimme the honky tonk blues '
-            '(honky tonk women, by the rolling Stones)'
+            '(honky tonk women, by the rolling stones)'
         )
 
         self.assertEqual(res_decrypt_phrase, expected_decrypted_phrase)
