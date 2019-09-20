@@ -9,6 +9,8 @@ class PolYBius(object):
         self.matrix_rows = rows
         self.matrix_columns = columns
         # Todo alphabet checker no list of lists of lists
+        # TODO Check Same lenght keys rows and columns all
+        # Todo Check repeated r:B E B| c:C G G
         self.alphabet = alphabet
 
         # If alphabet is [
@@ -36,10 +38,11 @@ class PolYBius(object):
             [
                 ''.join(self.matrix_encoder_dict[ch])
                 if ch in self.alphabet_distinct
-                else ch
+                else ''
                 for ch in phrase
             ]
         )
 
     def decrypt(self, phrase):
+        # TODO ALL PERMUTATIONS
         pass
