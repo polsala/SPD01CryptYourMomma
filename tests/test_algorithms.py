@@ -95,14 +95,14 @@ class TestAlgorithms(unittest.TestCase):
 
     def test_polybius_encrypt(self):
         polibius = PolYBius(
-            5, [
+            [
                 'A',
                 'B',
                 'C',
                 'D',
                 'E'
             ],  # Encrypt Keys Rows
-            5, ['A', 'B', 'C', 'D', 'E'],  # Decrypt Keys Columns
+            ['A', 'B', 'C', 'D', 'E'],  # Decrypt Keys Columns
             alphabet=BRITISH_ALPHABET_LOWER_POLYBIUS_5_X_5
         )
         original_phrase = 'hi julius'
@@ -112,14 +112,14 @@ class TestAlgorithms(unittest.TestCase):
 
     def test_polybius_encrypt_duplicate_non_alphabet_chars(self):
         polibius = PolYBius(
-            5, [
+            [
                 'A',
                 'B',
                 'C',
                 'D',
                 'E'
             ],  # Encrypt Keys Rows
-            5, ['A', 'B', 'C', 'D', 'E'],  # Decrypt Keys Columns
+            ['A', 'B', 'C', 'D', 'E'],  # Decrypt Keys Columns
             alphabet=BRITISH_ALPHABET_LOWER_POLYBIUS_5_X_5,
             multiply_non_alpha=True
         )
@@ -130,14 +130,14 @@ class TestAlgorithms(unittest.TestCase):
 
     def test_polybius_decrypt(self):
         polibius = PolYBius(
-            5, [
+            [
                 'A',
                 'B',
                 'C',
                 'D',
                 'E'
             ],  # Encrypt Keys Rows
-            5, ['A', 'B', 'C', 'D', 'E'],  # Decrypt Keys Columns
+            ['A', 'B', 'C', 'D', 'E'],  # Decrypt Keys Columns
             alphabet=BRITISH_ALPHABET_LOWER_POLYBIUS_5_X_5,
         )
 
@@ -148,14 +148,14 @@ class TestAlgorithms(unittest.TestCase):
 
     def test_polybius_decrypt_duplicate_non_alphabet_chars(self):
         polibius = PolYBius(
-            5, [
+            [
                 'A',
                 'B',
                 'C',
                 'D',
                 'E'
             ],  # Encrypt Keys Rows
-            5, ['A', 'B', 'C', 'D', 'E'],  # Decrypt Keys Columns
+            ['A', 'B', 'C', 'D', 'E'],  # Decrypt Keys Columns
             alphabet=BRITISH_ALPHABET_LOWER_POLYBIUS_5_X_5,
             multiply_non_alpha=True
         )
