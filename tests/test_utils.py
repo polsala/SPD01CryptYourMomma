@@ -62,6 +62,18 @@ class TestMatrixUtils(unittest.TestCase):
 
         self.assertEqual(result_dict, expected_result_dict)
 
+    def test_get_iterables_as_list_from_list(self):
+        entry_list = [[], 22, 99.9, [1, 2], 'A', tuple([]), (1, 2), iter((5, 5)), 4, 'B']
+        res_list = get_iterables_as_lists_from_list(entry_list)
+        expected_res_list = [[], [1, 2], ['A'], [], [1, 2], [5, 5], ['B']]
+
+        self.assertEqual(res_list, expected_res_list)
+
+        res_list2 = get_iterables_as_lists_from_list([])
+        expected_res_list2 = []
+
+        self.assertEqual(res_list2, expected_res_list2)
+
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestMatrixUtils)

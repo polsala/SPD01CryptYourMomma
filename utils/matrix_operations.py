@@ -67,3 +67,11 @@ def create_dict_reverse_mapping_from_iterable(n_rows, rows_code_list, n_columns,
 
 def remove_duplicates_from_list(some_list: list or tuple):
     return list(dict.fromkeys(some_list))
+
+
+def get_iterables_as_lists_from_list(iterable_l):
+    if not isinstance(iterable_l, Iterable):
+        raise Exception('You passed a non iterable!')
+    iterable_l = list(iterable_l)
+
+    return [list(l) for l in iterable_l if isinstance(l, Iterable)]
