@@ -106,7 +106,7 @@ class TestAlgorithms(unittest.TestCase):
             BRITISH_ALPHABET_LOWER_POLYBIUS_5_X_5
         )
         original_phrase = 'hi julius'
-        expected_encrypted_phrase = 'BCBD BDDECABDDEDC'
+        expected_encrypted_phrase = 'BCBDBDDECABDDEDC'
 
         self.assertEqual(polibius.encrypt(original_phrase), expected_encrypted_phrase)
 
