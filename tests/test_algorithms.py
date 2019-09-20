@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import unittest
-from defs.alphabets import BRITISH_ALPHABET_LOWER
+from defs.alphabets import BRITISH_ALPHABET_LOWER, BRITISH_ALPHABET_LOWER_POLYBIUS_5_X_5
 from algorithms.cesar import AveCesar
 from algorithms.rail_fence import RailFence
 from algorithms.polybius import PolYBius
@@ -94,8 +94,21 @@ class TestAlgorithms(unittest.TestCase):
         self.assertEqual(res_encrypt_phrase, expected_encrypted_phrase)
 
     def test_polybius_encrypt(self):
-        # self.assertEqual('', '')
-        pass
+        polibius = PolYBius(
+            5, [
+                'A',
+                'B',
+                'C',
+                'D',
+                'E'
+            ],  # Encrypt Keys Rows
+            5, ['A', 'B', 'C', 'D', 'E'],  # Decrypt Keys Columns
+            BRITISH_ALPHABET_LOWER_POLYBIUS_5_X_5
+        )
+        original_phrase = 'hi julius'
+        expected_encrypted_phrase = 'BCBD BDDECABDDEDC'
+
+        self.assertEqual(polibius.encrypt(original_phrase), expected_encrypted_phrase)
 
     def test_polybius_decrypt(self):
         # self.assertEqual('', '')
