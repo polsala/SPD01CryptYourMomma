@@ -29,8 +29,8 @@ class TestMatrixUtils(unittest.TestCase):
         ]
         self.assertEqual(result_matrix, expected_matrix)
 
-    def test_create_dict_mapping_from_iterable(self):
-        result_dict = create_dict_mapping_from_iterable(
+    def test_create_dict_reverse_mapping_from_iterable(self):
+        result_dict = create_dict_reverse_mapping_from_iterable(
             5, ['A', 'B', 'C', 'D', 'E'],
             5, ['A', 'B', 'C', 'D', 'E'],
             BRITISH_ALPHABET_LOWER_POLYBIUS_5_X_5
@@ -44,6 +44,23 @@ class TestMatrixUtils(unittest.TestCase):
             ('E', 'A'): 'v', ('E', 'B'): 'w', ('E', 'C'): 'x', ('E', 'D'): 'y', ('E', 'E'): 'z'}
 
         self.assertEqual(result_dict, expected_result)
+
+    def test_create_dict_mapping_from_iterable(self):
+        result_dict = create_dict_mapping_from_iterable(
+            5, ['A', 'B', 'C', 'D', 'E'],
+            5, ['A', 'B', 'C', 'D', 'E'],
+            BRITISH_ALPHABET_LOWER_POLYBIUS_5_X_5
+        )
+
+        expected_result_dict = {
+            'a': ('A', 'A'), 'b': ('A', 'B'), 'c': ('A', 'C'), 'd': ('A', 'D'), 'e': ('A', 'E'),
+            'f': ('B', 'A'), 'g': ('B', 'B'), 'h': ('B', 'C'), 'i': ('B', 'D'), 'j': ('B', 'D'),
+            'k': ('B', 'E'), 'l': ('C', 'A'), 'm': ('C', 'B'), 'n': ('C', 'C'), 'o': ('C', 'D'),
+            'p': ('C', 'E'), 'q': ('D', 'A'), 'r': ('D', 'B'), 's': ('D', 'C'), 't': ('D', 'D'),
+            'u': ('D', 'E'), 'v': ('E', 'A'), 'w': ('E', 'B'), 'x': ('E', 'C'), 'y': ('E', 'D'),
+            'z': ('E', 'E')}
+
+        self.assertEqual(result_dict, expected_result_dict)
 
 
 if __name__ == '__main__':
