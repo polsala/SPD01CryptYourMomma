@@ -31,8 +31,8 @@ class TestMatrixUtils(unittest.TestCase):
 
     def test_create_dict_reverse_mapping_from_iterable(self):
         result_dict = create_dict_reverse_mapping_from_iterable(
-            5, ['A', 'B', 'C', 'D', 'E'],
-            5, ['A', 'B', 'C', 'D', 'E'],
+            ['A', 'B', 'C', 'D', 'E'],
+            ['A', 'B', 'C', 'D', 'E'],
             BRITISH_ALPHABET_LOWER_POLYBIUS_5_X_5
         )
 
@@ -47,8 +47,8 @@ class TestMatrixUtils(unittest.TestCase):
 
     def test_create_dict_mapping_from_iterable(self):
         result_dict = create_dict_mapping_from_iterable(
-            5, ['A', 'B', 'C', 'D', 'E'],
-            5, ['A', 'B', 'C', 'D', 'E'],
+            ['A', 'B', 'C', 'D', 'E'],
+            ['A', 'B', 'C', 'D', 'E'],
             BRITISH_ALPHABET_LOWER_POLYBIUS_5_X_5
         )
 

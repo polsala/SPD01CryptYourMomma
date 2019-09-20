@@ -5,7 +5,7 @@ from utils.matrix_operations import create_dict_reverse_mapping_from_iterable, \
 
 
 class PolYBius(object):
-    def __init__(self, rows, rows_code_list, columns, columns_code_list, alphabet, multiply_non_alpha=False):
+    def __init__(self, rows_code_list, columns_code_list, alphabet, multiply_non_alpha=False):
         # Todo Problem if pass '[' or ']' as keys for parsing decrypt response after call decrypt method
         p_key_len = len(rows_code_list[0])
 
@@ -13,8 +13,8 @@ class PolYBius(object):
             raise Exception('Length of keys should be the same')
 
         self.key_len = p_key_len * 2
-        self.matrix_rows = rows
-        self.matrix_columns = columns
+        self.matrix_rows = len(rows_code_list)
+        self.matrix_columns = len(columns_code_list)
 
         if len(rows_code_list) != len(set(rows_code_list)):
             raise Exception('Duplicated keys on rows keys list')
@@ -44,10 +44,10 @@ class PolYBius(object):
         # ]
 
         self.matrix_encoder_dict = create_dict_mapping_from_iterable(
-            rows, rows_code_list, columns, columns_code_list, alphabet
+            rows_code_list, columns_code_list, alphabet
         )
         self.matrix_decoder_dict = create_dict_reverse_mapping_from_iterable(
-            rows, rows_code_list, columns, columns_code_list,  alphabet
+            rows_code_list, columns_code_list,  alphabet
         )
 
         self.multiply_non_alpha = multiply_non_alpha
