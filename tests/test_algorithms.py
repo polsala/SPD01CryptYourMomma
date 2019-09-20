@@ -129,8 +129,41 @@ class TestAlgorithms(unittest.TestCase):
         self.assertEqual(polibius.encrypt(original_phrase), expected_encrypted_phrase)
 
     def test_polybius_decrypt(self):
-        # self.assertEqual('', '')
-        pass
+        polibius = PolYBius(
+            5, [
+                'A',
+                'B',
+                'C',
+                'D',
+                'E'
+            ],  # Encrypt Keys Rows
+            5, ['A', 'B', 'C', 'D', 'E'],  # Decrypt Keys Columns
+            alphabet=BRITISH_ALPHABET_LOWER_POLYBIUS_5_X_5,
+        )
+
+        original_phrase = 'BCBD  BDDECABDDEDC'
+        expected_encrypted_phrase = "h['i', 'j']['i', 'j']ul['i', 'j']us"
+
+        self.assertEqual(polibius.decrypt(original_phrase), expected_encrypted_phrase)
+
+    def test_polybius_decrypt_duplicate_non_alphabet_chars(self):
+        polibius = PolYBius(
+            5, [
+                'A',
+                'B',
+                'C',
+                'D',
+                'E'
+            ],  # Encrypt Keys Rows
+            5, ['A', 'B', 'C', 'D', 'E'],  # Decrypt Keys Columns
+            alphabet=BRITISH_ALPHABET_LOWER_POLYBIUS_5_X_5,
+            multiply_non_alpha=True
+        )
+
+        original_phrase = 'BCBD  BDDECABDDEDC'
+        expected_encrypted_phrase = "h['i', 'j'] ['i', 'j']ul['i', 'j']us"
+
+        self.assertEqual(polibius.decrypt(original_phrase), expected_encrypted_phrase)
 
     def test_rail_fence_encrypt(self):
         # self.assertEqual('', '')

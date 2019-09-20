@@ -18,6 +18,9 @@ class PolYBius(object):
         if len(rows_code_list) != len(set(rows_code_list)):
             raise Exception('Duplicated keys on rows keys list')
 
+        self.rows_code_list = rows_code_list
+        self.columns_code_list = columns_code_list
+
         if len(columns_code_list) != len(set(columns_code_list)):
             raise Exception('Duplicated keys on columns keys list')
 
@@ -60,5 +63,17 @@ class PolYBius(object):
         )
 
     def decrypt(self, phrase):
-        # TODO ALL PERMUTATIONS
-        pass
+        list_tuples_group_key_len = list(zip(*[iter(phrase)] * self.key_len))
+
+        return ''.join(
+            [
+                (
+                    self.matrix_decoder_dict[ch]
+                    if not isinstance(self.matrix_decoder_dict[ch], list)
+                    else '{}'.format(self.matrix_decoder_dict[ch])
+                )
+                if ch in self.matrix_decoder_dict.keys()
+                else ('' if not self.multiply_non_alpha else ch[0])
+                for ch in list_tuples_group_key_len
+            ]
+        )
