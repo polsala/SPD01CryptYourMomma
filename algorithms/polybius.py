@@ -6,6 +6,7 @@ from utils.matrix_operations import create_dict_reverse_mapping_from_iterable, \
 
 class PolYBius(object):
     def __init__(self, rows, rows_code_list, columns, columns_code_list, alphabet, multiply_non_alpha=False):
+        # Todo Problem if pass '[' or ']' as keys for parsing decrypt response after call decrypt method
         p_key_len = len(rows_code_list[0])
 
         if not all([len(k) == p_key_len for k in rows_code_list + columns_code_list]):
