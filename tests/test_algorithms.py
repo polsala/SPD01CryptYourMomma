@@ -103,10 +103,28 @@ class TestAlgorithms(unittest.TestCase):
                 'E'
             ],  # Encrypt Keys Rows
             5, ['A', 'B', 'C', 'D', 'E'],  # Decrypt Keys Columns
-            BRITISH_ALPHABET_LOWER_POLYBIUS_5_X_5
+            alphabet=BRITISH_ALPHABET_LOWER_POLYBIUS_5_X_5
         )
         original_phrase = 'hi julius'
         expected_encrypted_phrase = 'BCBDBDDECABDDEDC'
+
+        self.assertEqual(polibius.encrypt(original_phrase), expected_encrypted_phrase)
+
+    def test_polybius_encrypt_duplicate_non_alphabet_chars(self):
+        polibius = PolYBius(
+            5, [
+                'A',
+                'B',
+                'C',
+                'D',
+                'E'
+            ],  # Encrypt Keys Rows
+            5, ['A', 'B', 'C', 'D', 'E'],  # Decrypt Keys Columns
+            alphabet=BRITISH_ALPHABET_LOWER_POLYBIUS_5_X_5,
+            multiply_non_alpha=True
+        )
+        original_phrase = 'hi julius'
+        expected_encrypted_phrase = 'BCBD  BDDECABDDEDC'
 
         self.assertEqual(polibius.encrypt(original_phrase), expected_encrypted_phrase)
 
