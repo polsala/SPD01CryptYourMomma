@@ -14,7 +14,13 @@ class PolYBius(object):
         self.key_len = p_key_len * 2
         self.matrix_rows = rows
         self.matrix_columns = columns
-        # Todo Check repeated r:B E B| c:C G G
+
+        if len(rows_code_list) != len(set(rows_code_list)):
+            raise Exception('Duplicated keys on rows keys list')
+
+        if len(columns_code_list) != len(set(columns_code_list)):
+            raise Exception('Duplicated keys on columns keys list')
+
         self.alphabet = alphabet
 
         # If alphabet is [
