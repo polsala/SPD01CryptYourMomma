@@ -2,7 +2,7 @@
 
 
 class RailFence(object):
-    def __init__(self, rails, alphabet):
+    def __init__(self, rails, alphabet=None):
         self.n_rails = rails
         self.alphabet = alphabet
 
