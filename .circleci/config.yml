@@ -56,8 +56,8 @@ jobs:
           name: coverage
           command: |
             . venv/bin/activate
-            coverage -m tests/test_algorithms.py
-            coverage -m  tests/test_utils.py
+            coverage run -m unittest -v tests/test_algorithms.py
+            coverage run -m unittest -v tests/test_utils.py
             coverage report
             coverage html
 
