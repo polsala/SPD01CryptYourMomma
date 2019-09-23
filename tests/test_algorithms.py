@@ -166,12 +166,35 @@ class TestAlgorithms(unittest.TestCase):
         self.assertEqual(polibius.decrypt(original_phrase), expected_encrypted_phrase)
 
     def test_rail_fence_encrypt(self):
-        # self.assertEqual('', '')
-        pass
+        rail_fence = RailFence(7)
+        original_phrase = (
+            'it\'s the honky tonk women that gimme, gimme, gimme the honky tonk blues '
+            '(honky tonk women, by the rolling stones)'
+        )
+        expected_encrypted_phrase = (
+            'ikn,m (weotnye e meyt h oh tn\'o mtmgi kosokmtrseshtohmigtnnenne o s  '
+            'owaim hokukonylg)ten tgm,eh lyt,blnhk e b  i'
+        )
+        res = rail_fence.encrypt(original_phrase)
+
+        self.assertEqual(res, expected_encrypted_phrase)
 
     def test_rail_fence_decrypt(self):
-        # self.assertEqual('', '')
-        pass
+        rail_fence = RailFence(7)
+
+        original_phrase_encrypted = (
+            'ikn,m (weotnye e meyt h oh tn\'o mtmgi kosokmtrseshtohmigtnnenne o s  '
+            'owaim hokukonylg)ten tgm,eh lyt,blnhk e b  i'
+        )
+
+        expected_decrypted_phrase = (
+            'it\'s the honky tonk women that gimme, gimme, gimme the honky tonk blues '
+            '(honky tonk women, by the rolling stones)'
+        )
+
+        res = rail_fence.decrypt(original_phrase_encrypted)
+
+        self.assertEqual(res, expected_decrypted_phrase)
 
 
 if __name__ == '__main__':
