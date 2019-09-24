@@ -10,7 +10,7 @@ def create_matrix_from_iterable(n_rows, n_columns, iterable_l):
     if n_rows * n_columns != len(iterable_l):
         raise Exception('That\s not possible ma friend %s X %s != %s' % (n_rows, n_columns, iterable_l))
 
-    return list(zip(*[iter(iterable_l)]*n_rows))
+    return list(zip(*[iter(iterable_l)]*n_columns))
 
 
 def create_dict_mapping_from_iterable(rows_code_list, columns_code_list, iterable_l):
