@@ -110,6 +110,45 @@ class TestAlgorithms(unittest.TestCase):
 
         self.assertEqual(polibius.encrypt(original_phrase), expected_encrypted_phrase)
 
+    def test_polybius_encrypt_5x6(self):
+        extended_alpfabet = list.copy(BRITISH_ALPHABET_LOWER)
+        extended_alpfabet.extend(['ñ', '.', '-', ';'])
+        polibius = PolYBius(
+            [
+                'A',
+                'B',
+                'C',
+                'D',
+                'E'
+            ],  # Encrypt Keys Rows
+            ['A', 'B', 'C', 'D', 'E', 'F'],  # Decrypt Keys Columns
+            alphabet=extended_alpfabet
+        )
+        original_phrase = '-;'
+        expected_encrypted_phrase = 'EEEF'
+
+        self.assertEqual(polibius.encrypt(original_phrase), expected_encrypted_phrase)
+
+    def test_polybius_encrypt_6x5(self):
+        extended_alpfabet = list.copy(BRITISH_ALPHABET_LOWER)
+        extended_alpfabet.extend(['ñ', '.', '-', ';'])
+        polibius = PolYBius(
+            [
+                'A',
+                'B',
+                'C',
+                'D',
+                'E',
+                'F'
+            ],  # Encrypt Keys Rows
+            ['A', 'B', 'C', 'D', 'E'],  # Decrypt Keys Columns
+            alphabet=extended_alpfabet
+        )
+        original_phrase = '-;'
+        expected_encrypted_phrase = 'FDFE'
+
+        self.assertEqual(polibius.encrypt(original_phrase), expected_encrypted_phrase)
+
     def test_polybius_encrypt_duplicate_non_alphabet_chars(self):
         polibius = PolYBius(
             [
