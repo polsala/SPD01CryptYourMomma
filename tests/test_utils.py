@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import unittest
 from utils.matrix_operations import *
-from defs.alphabets import BRITISH_ALPHABET_LOWER_POLYBIUS_5_X_5
+from defs.alphabets import BRITISH_ALPHABET_LOWER_POLYBIUS_5_X_5, BRITISH_ALPHABET_LOWER_POLYBIUS_6_X_5_OR_6_X_5
 
 
 class TestMatrixUtils(unittest.TestCase):
@@ -26,6 +26,29 @@ class TestMatrixUtils(unittest.TestCase):
             ('l', 'm', 'n', 'o', 'p'),
             ('q', 'r', 's', 't', 'u'),
             ('v', 'w', 'x', 'y', 'z')
+        ]
+        self.assertEqual(result_matrix, expected_matrix)
+
+    def test_create_matrix_from_iterable5x6(self):
+        result_matrix = create_matrix_from_iterable(5, 6, BRITISH_ALPHABET_LOWER_POLYBIUS_6_X_5_OR_6_X_5)
+        expected_matrix = [
+            ('a', 'b', 'c', 'd', 'e', 'f'),
+            ('g', 'h', 'i', 'j', 'k', 'l'),
+            ('m', 'n', 'o', 'p', 'q', 'r'),
+            ('s', 't', 'u', 'v', 'w', 'x'),
+            ('y', 'z', 'ñ', '.', '-', ';')
+        ]
+        self.assertEqual(result_matrix, expected_matrix)
+
+    def test_create_matrix_from_iterable6x5(self):
+        result_matrix = create_matrix_from_iterable(6, 5, BRITISH_ALPHABET_LOWER_POLYBIUS_6_X_5_OR_6_X_5)
+        expected_matrix = [
+            ('a', 'b', 'c', 'd', 'e'),
+            ('f', 'g', 'h', 'i', 'j'),
+            ('k', 'l', 'm', 'n', 'o'),
+            ('p', 'q', 'r', 's', 't'),
+            ('u', 'v', 'w', 'x', 'y'),
+            ('z', 'ñ', '.', '-', ';')
         ]
         self.assertEqual(result_matrix, expected_matrix)
 
